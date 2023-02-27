@@ -6,13 +6,13 @@
 /*   By: ttakami <ttakami@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 12:27:44 by ttakami           #+#    #+#             */
-/*   Updated: 2023/02/28 03:16:37 by ttakami          ###   ########.fr       */
+/*   Updated: 2023/02/28 03:19:14 by ttakami          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	size_t	ft_strnlen(const char *str, size_t maxlen)
+static size_t	ft_strnlen(const char *str, size_t maxlen)
 {
 	size_t	i;
 

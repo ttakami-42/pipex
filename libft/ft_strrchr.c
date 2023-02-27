@@ -6,7 +6,7 @@
 /*   By: ttakami <ttakami@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 11:40:00 by ttakami           #+#    #+#             */
-/*   Updated: 2022/05/23 14:10:15 by ttakami          ###   ########.fr       */
+/*   Updated: 2023/02/28 03:19:32 by ttakami          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,3 @@ char	*ft_strrchr(const char *str, int c)
 	}
 	return ((char *)ptr);
 }
-/*
-int main ()
-{
-	char	str[] = "abcd";
-	char	c = 'a';
-	char	*s1;
-	char	*s2;
-
-	s1 = strrchr(str, c);
-	s2 = ft_strrchr(str, c);
-	printf("%s\n", s1);
-	printf("%s\n", s2);
-	printf("%p\n", s1);
-	printf("%p\n", s2);
-}*/
