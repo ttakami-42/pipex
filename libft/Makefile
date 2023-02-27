@@ -13,9 +13,10 @@
 NAME	= libft.a
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
-OBJS	= ${SRCS:.c=.o}
-OBJSB	= ${SRCSB:.c=.o}
-SRCS	= ft_isalpha.c \
+OBJS	= $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
+OBJSB	= $(addprefix $(OBJDIR)/, $(SRCSB:.c=.o))
+OBJDIR	= ./obj
+SRCS	=   ft_isalpha.c \
 			ft_isdigit.c \
 			ft_isalnum.c \
 			ft_isascii.c \
@@ -49,7 +50,7 @@ SRCS	= ft_isalpha.c \
 			ft_putstr_fd.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c
-SRCSB	= ft_lstnew.c \
+SRCSB	=   ft_lstnew.c \
 			ft_lstadd_front.c \
 			ft_lstsize.c \
 			ft_lstlast.c \
@@ -65,19 +66,21 @@ else
 ALL_OBJS = $(OBJS)
 endif
 
-all:	$(NAME)
+all: $(NAME)
 
-$(NAME):	$(ALL_OBJS)
+$(NAME): $(ALL_OBJS)
 	ar rcs $(NAME) $(ALL_OBJS)
 
-.c.o:
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJDIR)/%.o: %.c
+	@mkdir -p $(OBJDIR)
+	@[ -d $(OBJDIR) ]
+	$(CC) -c $(CFLAGS) -o $@ $<
 
 clean:
-	rm -rf $(OBJS) $(OBJSB)
+	rm -rf $(OBJDIR)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

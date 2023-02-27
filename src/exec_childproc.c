@@ -6,7 +6,7 @@
 /*   By: ttakami <ttakami@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:17:28 by ttakami           #+#    #+#             */
-/*   Updated: 2022/10/28 19:51:59 by ttakami          ###   ########.fr       */
+/*   Updated: 2023/02/27 23:46:21 by ttakami          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	exec_childproc(t_fd_info *f, char **argv, char **envp, int is_second)
 	}
 }
 
-static	void	set_stdio_fd(t_fd_info *f, int is_second)
+static void	set_stdio_fd(t_fd_info *f, int is_second)
 {
 	if (!is_second)
 	{
@@ -51,7 +51,7 @@ static	void	set_stdio_fd(t_fd_info *f, int is_second)
 	}
 }
 
-static	void	*free_twodarray(char **s)
+static void	*free_twodarray(char **s)
 {
 	size_t	i;
 
@@ -65,7 +65,7 @@ static	void	*free_twodarray(char **s)
 	return (NULL);
 }
 
-static	char	*get_cmd_path(char *cmd_name, char **envp)
+static char	*get_cmd_path(char *cmd_name, char **envp)
 {
 	char	**all_paths;
 	char	*tmp;
@@ -93,7 +93,7 @@ static	char	*get_cmd_path(char *cmd_name, char **envp)
 	return (ft_strdup(cmd_name));
 }
 
-static	void	executor(char **argv, char **envp, int is_second)
+static void	executor(char **argv, char **envp, int is_second)
 {
 	char	*cmd_path;
 	char	**cmd_args;

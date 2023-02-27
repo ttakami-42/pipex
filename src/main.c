@@ -6,15 +6,15 @@
 /*   By: ttakami <ttakami@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:35:48 by ttakami           #+#    #+#             */
-/*   Updated: 2022/10/28 19:52:01 by ttakami          ###   ########.fr       */
+/*   Updated: 2023/02/27 23:46:00 by ttakami          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-static	void	open_pipe(t_fd_info *fd_info);
-static	void	validate_args(int argc);
-static	void	wait_childproc(void);
+static void	open_pipe(t_fd_info *fd_info);
+static void	validate_args(int argc);
+static void	wait_childproc(void);
 
 int	main(int argc, char **argv, char **envp)
 {
@@ -31,19 +31,19 @@ int	main(int argc, char **argv, char **envp)
 	exit(EXIT_SUCCESS);
 }
 
-static	void	validate_args(int argc)
+static void	validate_args(int argc)
 {
 	if (argc != 5)
 		perror_and_exit(NULL, MY_ERR_INPUT);
 }
 
-static	void	open_pipe(t_fd_info *f)
+static void	open_pipe(t_fd_info *f)
 {
 	if (pipe(f->pipe_fd) < 0)
 		perror_and_exit("pipe", NULL);
 }
 
-static	void	wait_childproc(void)
+static void	wait_childproc(void)
 {
 	int	i;
 
