@@ -6,7 +6,7 @@
 /*   By: ttakami <ttakami@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 09:56:54 by ttakami           #+#    #+#             */
-/*   Updated: 2022/04/27 22:04:56 by ttakami          ###   ########.fr       */
+/*   Updated: 2023/02/28 03:16:27 by ttakami          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,3 @@ size_t	ft_strlen(const char *str)
 		i++;
 	return (i);
 }
-/*int main()
-{
-	char *str = "123456"; 
-	int i = ft_strlen(str);
-	printf("%d\n", i);
-}*/

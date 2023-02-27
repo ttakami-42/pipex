@@ -6,13 +6,13 @@
 /*   By: ttakami <ttakami@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 12:55:30 by ttakami           #+#    #+#             */
-/*   Updated: 2022/06/06 12:29:31 by ttakami          ###   ########.fr       */
+/*   Updated: 2023/02/28 03:16:08 by ttakami          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	size_t	ft_get_toptriml(char const *s1, char const *set)
+static size_t	ft_get_toptriml(char const *s1, char const *set)
 {
 	size_t	count;
 
@@ -24,7 +24,7 @@ static	size_t	ft_get_toptriml(char const *s1, char const *set)
 	return (count);
 }
 
-static	size_t	ft_get_bottomtriml(char const *s1, char const *set)
+static size_t	ft_get_bottomtriml(char const *s1, char const *set)
 {
 	size_t	count;
 

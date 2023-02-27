@@ -6,13 +6,13 @@
 /*   By: ttakami <ttakami@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 14:13:44 by ttakami           #+#    #+#             */
-/*   Updated: 2022/06/08 00:40:26 by ttakami          ###   ########.fr       */
+/*   Updated: 2023/02/28 03:15:32 by ttakami          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	size_t	ft_move_splitstart(char const *str, char c)
+static size_t	ft_move_splitstart(char const *str, char c)
 {
 	size_t	count;
 
@@ -22,7 +22,7 @@ static	size_t	ft_move_splitstart(char const *str, char c)
 	return (count);
 }
 
-static	size_t	ft_get_splitlen(char const *str, char c)
+static size_t	ft_get_splitlen(char const *str, char c)
 {
 	size_t	count;
 
@@ -32,7 +32,7 @@ static	size_t	ft_get_splitlen(char const *str, char c)
 	return (count);
 }
 
-static	size_t	ft_get_splittimes(char const *str, char c)
+static size_t	ft_get_splittimes(char const *str, char c)
 {
 	size_t	elem;
 
@@ -48,7 +48,7 @@ static	size_t	ft_get_splittimes(char const *str, char c)
 	return (elem);
 }
 
-static	void	*ft_free_array(char **result)
+static void	*ft_free_array(char **result)
 {
 	size_t	i;
 
@@ -89,29 +89,3 @@ char	**ft_split(char const *str, char c)
 	result[result_i] = NULL;
 	return (result);
 }
-/*
-int	main()
-{
-	char	*s = "  tripouille  42  ";
-	char	**map = ft_split(s, ' ');
-	size_t	x = 0;
-	for(; map[x] != NULL; x++);
-	for(size_t i = 0; i < x; i++)
-	{
-		printf("%s\n", map[i]);
-	}
-}
-
-int	main(void)
-{
-	int		index;
-	char	**tab;
-	tab = ft_split("AxBxCCCxDDDDxEExxxF", 'x');
-	index = 0;
-	while (tab[index])
-	{
-		free(tab[index++]);
-	}
-	free(tab);
-	while (1);
-}*/

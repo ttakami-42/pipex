@@ -6,7 +6,7 @@
 /*   By: ttakami <ttakami@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 10:17:34 by ttakami           #+#    #+#             */
-/*   Updated: 2022/06/06 09:55:00 by ttakami          ###   ########.fr       */
+/*   Updated: 2023/02/28 03:17:49 by ttakami          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,3 @@ void	*ft_calloc(size_t num, size_t size)
 	ft_bzero(p, n);
 	return (p);
 }
-/*
-int main()
-{
-	char	*orig;
-	char	*ft;
-
-	orig = calloc(0, 3);
-	ft  = ft_calloc(0, 3);
-	printf("orig %p\n", orig);
-	printf("ft %p\n", ft);
-	free(orig);
-	free(ft);
-	return (0);
-}
-*/

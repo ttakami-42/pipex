@@ -6,7 +6,7 @@
 /*   By: ttakami <ttakami@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 11:47:44 by ttakami           #+#    #+#             */
-/*   Updated: 2022/08/05 03:55:16 by ttakami          ###   ########.fr       */
+/*   Updated: 2023/02/28 03:16:00 by ttakami          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,3 @@ char	*ft_substr(const char *str, unsigned int start, size_t len)
 	*(result + size) = '\0';
 	return (result);
 }
-/*
-int	main()
-{
-	char	src[] = "42tokyo";
-	int		c = 2;
-	size_t	s = 5;
-
-	printf("%s\n", ft_substr(src, c, s));
-}*/

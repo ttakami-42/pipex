@@ -28,12 +28,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	return (ft_strlen(src));
 }
-
-/*int main(void){
-
-	char data1[12] = "abcdefghijk", data2[15] = "oooooooooooooo";
-	printf("%s\n", data1);
-	ft_strlcpy(data2, data1, 10);
-	printf("%s\n", data2);
-	return 0;
-}*/

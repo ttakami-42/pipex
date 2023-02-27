@@ -6,18 +6,18 @@
 /*   By: ttakami <ttakami@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 10:52:28 by ttakami           #+#    #+#             */
-/*   Updated: 2022/06/05 02:10:01 by ttakami          ###   ########.fr       */
+/*   Updated: 2023/02/28 03:18:11 by ttakami          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	ft_isspace(int c)
+static int	ft_isspace(int c)
 {
 	return ((9 <= c && c <= 13) || c == 32);
 }
 
-static	int	ft_isoverflow(long *num, int is_neg, int c)
+static int	ft_isoverflow(long *num, int is_neg, int c)
 {
 	long	cutoff;
 	int		cutlim;
@@ -66,11 +66,3 @@ int	ft_atoi(const char *str)
 		return (-num);
 	return (num);
 }
-/*
-int main ()
-{
-	char c[40];
-	sprintf(c, "%li", (-9223372036854775807L -1L));
-	printf("%d\n", ft_atoi(c));
-}
-*/

@@ -6,13 +6,13 @@
 /*   By: ttakami <ttakami@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 11:54:15 by ttakami           #+#    #+#             */
-/*   Updated: 2022/06/09 21:49:58 by ttakami          ###   ########.fr       */
+/*   Updated: 2023/02/28 03:17:35 by ttakami          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	unsigned int	ft_count_ndigit(long num)
+static unsigned int	ft_count_ndigit(long num)
 {
 	unsigned int	count;
 
@@ -57,11 +57,3 @@ char	*ft_itoa(int n)
 	}
 	return (result);
 }
-/*
-int	main()
-{
-	int i;
-	i = -2147483648;
-	printf("%s", ft_itoa(i));
-}
-*/
