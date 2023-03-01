@@ -13,9 +13,6 @@
 NAME	= libft.a
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
-OBJS	= $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
-OBJSB	= $(addprefix $(OBJDIR)/, $(SRCSB:.c=.o))
-OBJDIR	= ./obj
 SRCS	=   ft_isalpha.c \
 			ft_isdigit.c \
 			ft_isalnum.c \
@@ -59,6 +56,9 @@ SRCSB	=   ft_lstnew.c \
 			ft_lstclear.c \
 			ft_lstiter.c \
 			ft_lstmap.c
+OBJDIR	= obj
+OBJS	= $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
+OBJSB	= $(addprefix $(OBJDIR)/, $(SRCSB:.c=.o))
 
 ifdef WITH_BONUS
 ALL_OBJS = $(OBJS) $(OBJSB)

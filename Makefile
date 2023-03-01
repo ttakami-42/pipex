@@ -6,7 +6,7 @@
 #    By: ttakami <ttakami@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 16:28:21 by ttakami           #+#    #+#              #
-#    Updated: 2023/02/27 23:17:25 by ttakami          ###   ########.fr        #
+#    Updated: 2023/03/01 16:24:27 by ttakami          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ DEBUG		= -g -fsanitize=address -fsanitize=undefined
 LEAK		= -g -fsanitize=leak
 SRCS		= main.c exec_childproc.c utils.c
 #SRCSB		=
-OBJDIR		= obj
 LIBFT		= libft/libft.a
+OBJDIR		= obj
 OBJS		= $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 #OBJSB		= $(addprefix $(OBJDIR)/, $(SRCSB:.c=.o))
 
@@ -39,8 +39,7 @@ $(LIBFT):
 	@make -C libft
 
 $(NAME):	$(LIBFT) $(ALL_OBJS)
-	gcc -o $(NAME) $(ALL_OBJS) $(LIBFT)
-
+	gcc $(CFLAGS) -o $(NAME) $(ALL_OBJS) $(LIBFT)
 
 clean:
 	rm -rf $(OBJDIR)
@@ -53,10 +52,10 @@ fclean:	clean
 re:	fclean all
 
 debug: $(NAME)
-	$(CC) $(DEBUG) -o $(NAME) $(ALL_OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(DEBUG) -o $(NAME) $(ALL_OBJS) $(LIBFT)
 
 leak: $(NAME)
-	$(CC) $(LEAK) -o $(NAME) $(ALL_OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(LEAK) -o $(NAME) $(ALL_OBJS) $(LIBFT)
 
 #bonus:
 #	@$(MAKE) WITH_BONUS=1 $(NAME)
