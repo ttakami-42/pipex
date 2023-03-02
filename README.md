@@ -28,12 +28,16 @@ It must take 4 arguments:
 ### Example
 ```sh
 ./pipex infile "ls -l" "wc -l" outfile
+```
+```sh
 #Should behave like:
 < infile ls -l | wc -l > outfile
 ```
 
 ```sh
 ./pipex infile "grep a1" "wc -w" outfile
+```
+```sh
 #Should behave like:
 < infile grep a1 | wc -w > outfile
 ```
@@ -51,6 +55,8 @@ You will get extra points if you:
 * Handle multiple pipes.
 	```sh
 	./pipex file1 cmd1 cmd2 cmd3 ... cmdn file2
+	```
+	```sh
 	#Should behave like:
 	< file1 cmd1 | cmd2 | cmd3 ... | cmdn > file2
 	```
@@ -58,6 +64,8 @@ You will get extra points if you:
 * Support « and » when the first parameter is "here_doc".
 	```sh
 	./pipex here_doc LIMITER cmd cmd1 file
+	```
+	```sh
 	#Should behave like:
 	cmd << LIMITER | cmd1 >> file
 	```
