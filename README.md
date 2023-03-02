@@ -25,7 +25,7 @@ It must take 4 arguments:
 	< file1 cmd1 | cmd2 > file2
 	```
 
-###Examples
+### Example
 ```sh
 ./pipex infile "ls -l" "wc -l" outfile
 #Should behave like:
