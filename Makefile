@@ -6,18 +6,27 @@
 #    By: ttakami <ttakami@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 16:28:21 by ttakami           #+#    #+#              #
-#    Updated: 2023/03/01 16:24:27 by ttakami          ###   ########.fr        #
+#    Updated: 2023/03/31 12:10:01 by ttakami          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= pipex
 CC			= cc
 CFLAGS		= -Wall -Werror -Wextra
-DEBUG		= -g -fsanitize=address -fsanitize=undefined
-LEAK		= -g -fsanitize=leak
+
+ifdef WITH_DEBUG
+	CFLAGS	= -Wall -Werror -Wextra -g -fsanitize=address -fsanitize=undefined
+endif
+
+ifdef WITH_LEAK
+	CFLAGS	= -Wall -Werror -Wextra -g -fsanitize=leak
+endif
+
 SRCS		= main.c exec_childproc.c utils.c
 #SRCSB		=
-LIBFT		= libft/libft.a
+LIBFTDIR	= libft
+LIBFT		= $(addprefix $(LIBFTDIR)/, libft.a)
+INC			= -Iinclude -I$(LIBFTDIR)
 OBJDIR		= obj
 OBJS		= $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 #OBJSB		= $(addprefix $(OBJDIR)/, $(SRCSB:.c=.o))
@@ -28,37 +37,54 @@ OBJS		= $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 ALL_OBJS	= $(OBJS)
 #endif
 
+# color codes
+
+RESET		= \033[0m
+GREEN		= \033[32m
+YELLOW		= \033[33m
+
+# Check if object directory exists, build libft and then the Project
+
 all:	$(NAME)
 
 $(OBJDIR)/%.o: %.c
 	@mkdir -p $(OBJDIR)
 	@[ -d $(OBJDIR) ]
-	$(CC) -c $(CFLAGS) -o $@ $< $(HEADERPATH)
+	@echo "$(YELLOW)      - Compiling :$(RESET)" $<
+	$(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
 $(LIBFT):
-	@make -C libft
+	@make bonus --no-print-directory -sC $(LIBFTDIR)
 
-$(NAME):	$(LIBFT) $(ALL_OBJS)
-	gcc $(CFLAGS) -o $(NAME) $(ALL_OBJS) $(LIBFT)
+$(NAME): $(LIBFT) $(OBJS)
+	@echo "$(YELLOW)\n      - Building $(RESET)$(NAME) $(YELLOW)...\n$(RESET)"
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)
+	@echo "$(GREEN)***   Project $(NAME) successfully compiled   ***\n$(RESET)"
 
 clean:
-	rm -rf $(OBJDIR)
-	@make -C libft clean
+	@echo "$(GREEN)***   Deleting all object from $(NAME)   ...   ***\n$(RESET)"
+	@rm -rf $(OBJDIR)
+	@make clean --no-print-directory -sC $(LIBFTDIR)
+	@echo "done\n"
 
-fclean:	clean
-	rm -f $(NAME)
-	rm -f $(LIBFT)
+fclean: clean
+	@echo "$(GREEN)***   Deleting executable file from $(NAME)   ...   ***\n$(RESET)"
+	@rm -f $(NAME)
+	@make fclean --no-print-directory -sC $(LIBFTDIR)
+	@echo "done\n"
 
-re:	fclean all
+re: fclean all
 
-debug: $(NAME)
-	$(CC) $(CFLAGS) $(DEBUG) -o $(NAME) $(ALL_OBJS) $(LIBFT)
+debug: fclean
+	@make --no-print-directory WITH_DEBUG=1
+	@echo "$(GREEN)***   You can debug $(NAME)   ***\n$(RESET)"
 
-leak: $(NAME)
-	$(CC) $(CFLAGS) $(LEAK) -o $(NAME) $(ALL_OBJS) $(LIBFT)
+leak: fclean
+	@make --no-print-directory WITH_LEAK=1
+	@echo "$(GREEN)***   You can see leaks $(NAME)   ***\n$(RESET)"
 
 #bonus:
-#	@$(MAKE) WITH_BONUS=1 $(NAME)
+#	@make WITH_BONUS=1
 
 .PHONY:	all clean fclean re debug leak
 
